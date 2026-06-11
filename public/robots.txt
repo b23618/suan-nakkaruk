@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /private
+
+Sitemap: https://suannakkaruk.com/sitemap.xml
+
+# Crawl delay for respectful crawling
+Crawl-delay: 1
