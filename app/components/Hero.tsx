@@ -46,7 +46,7 @@ export default function Hero() {
         <div className="absolute bottom-1/3 left-1/3 w-4 h-4 rounded-full bg-[#6B8E23]/20" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-16">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* LEFT — Content */}
