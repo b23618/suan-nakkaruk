@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
       disallow: ['/admin', '/private'],
       crawlDelay: 1,
     },
-    sitemap: 'https://suannakkaruk.com/sitemap.xml',
+    sitemap: 'https://suannakkaruk.up.railway.app/sitemap.xml',
   };
 }
