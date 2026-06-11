@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ShoppingCart, Phone, Leaf, Globe } from 'lucide-react';
+import { Menu, X, ShoppingCart, Phone, Leaf } from 'lucide-react';
 import Link from 'next/link';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -17,7 +17,12 @@ const navItems = [
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { language, setLanguage } = useLanguage();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -33,7 +38,7 @@ export default function Header() {
           : 'bg-transparent'
       }`}
     >
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
 
           {/* Logo */}
@@ -87,33 +92,35 @@ export default function Header() {
               <ShoppingCart size={20} />
               <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-[#D4AF37] text-white text-[9px] rounded-full flex items-center justify-center font-bold">0</span>
             </button>
-            {/* Language switcher */}
-            <div className="flex items-center gap-1 border-l border-gray-300/20 pl-3 ml-1">
-              <button
-                onClick={() => setLanguage('th')}
-                className={`px-2 py-1 text-xs font-bold rounded transition-all ${
-                  language === 'th'
-                    ? 'bg-[#D4AF37] text-white'
-                    : scrolled
-                    ? 'text-gray-700 hover:text-[#D4AF37]'
-                    : 'text-white/70 hover:text-white'
-                }`}
-              >
-                ไทย
-              </button>
-              <button
-                onClick={() => setLanguage('en')}
-                className={`px-2 py-1 text-xs font-bold rounded transition-all ${
-                  language === 'en'
-                    ? 'bg-[#D4AF37] text-white'
-                    : scrolled
-                    ? 'text-gray-700 hover:text-[#D4AF37]'
-                    : 'text-white/70 hover:text-white'
-                }`}
-              >
-                EN
-              </button>
-            </div>
+            {/* Language switcher - only render after mount to avoid hydration mismatch */}
+            {mounted && (
+              <div className="flex items-center gap-1 border-l border-gray-300/20 pl-3 ml-1">
+                <button
+                  onClick={() => setLanguage('th')}
+                  className={`px-2 py-1 text-xs font-bold rounded transition-all ${
+                    language === 'th'
+                      ? 'bg-[#D4AF37] text-white'
+                      : scrolled
+                      ? 'text-gray-700 hover:text-[#D4AF37]'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  ไทย
+                </button>
+                <button
+                  onClick={() => setLanguage('en')}
+                  className={`px-2 py-1 text-xs font-bold rounded transition-all ${
+                    language === 'en'
+                      ? 'bg-[#D4AF37] text-white'
+                      : scrolled
+                      ? 'text-gray-700 hover:text-[#D4AF37]'
+                      : 'text-white/70 hover:text-white'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
+            )}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={`lg:hidden p-2 transition-colors ${scrolled ? 'text-gray-700' : 'text-white'}`}

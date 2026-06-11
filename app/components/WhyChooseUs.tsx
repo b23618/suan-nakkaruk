@@ -52,7 +52,7 @@ export default function WhyChooseUs() {
 
   return (
     <section className="py-32 bg-white">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="max-w-2xl mb-16">

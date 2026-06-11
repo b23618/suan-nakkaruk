@@ -44,7 +44,7 @@ export default function Contact() {
 
       {/* BIG CTA BANNER */}
       <div className="py-24 px-4 sm:px-6 lg:px-8">
-        <div className="w-full mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.p
             initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +104,7 @@ export default function Contact() {
 
       {/* CONTACT METHODS */}
       <div className="border-t border-white/10 py-16 px-4 sm:px-6 lg:px-8">
-        <div className="w-full mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {contactMethods.map((method, i) => {
               const Icon = method.icon;
