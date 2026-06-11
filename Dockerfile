@@ -1,16 +1,11 @@
 FROM node:20-alpine AS base
 
-# --- deps: install production dependencies ---
-FROM base AS deps
+# --- builder: build the Next.js app ---
+FROM base AS builder
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
-
-# --- builder: build the Next.js app ---
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
