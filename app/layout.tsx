@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     images: ["https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=1200&h=630&q=85&auto=format&fit=crop"],
   },
   alternates: {
-    canonical: "https://suannakkaruk.com",
+    canonical: "https://suannakkaruk.up.railway.app",
   },
 };
 
