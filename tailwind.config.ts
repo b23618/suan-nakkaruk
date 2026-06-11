@@ -7,9 +7,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'primary-dark': '#2D5A27',
-        'primary-medium': '#6B8E23',
-        'accent-gold': '#D4AF37',
+        'primary-green': '#1B8C3C',
+        'primary-light-green': '#2EAD4E',
+        'accent-green': '#4CAF50',
+        'light-bg': '#F5F9F0',
         'cream': '#FFF8E8',
       },
       fontFamily: {

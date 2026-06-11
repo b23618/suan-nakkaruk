@@ -1,30 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --primary-dark: #2D5A27;
-  --primary-medium: #6B8E23;
-  --accent-gold: #D4AF37;
+  --primary: #2D5A27;
+  --primary-dark: #1A3A14;
+  --primary-light: #6B8E23;
+  --gold: #D4AF37;
+  --gold-light: #E8C54A;
   --cream: #FFF8E8;
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-primary-dark: var(--primary-dark);
-  --color-primary-medium: var(--primary-medium);
-  --color-accent-gold: var(--accent-gold);
-  --color-cream: var(--cream);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --cream-dark: #F5EDD0;
+  --forest: #12290D;
+  --white: #FFFFFF;
+  --text-dark: #111111;
+  --text-muted: #6B7280;
 }
 
 * {
@@ -38,36 +25,38 @@ html {
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-geist-sans);
+  background: #FFFFFF;
+  color: var(--text-dark);
+  font-family: var(--font-kanit), 'Kanit', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Premium Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  letter-spacing: -0.5px;
-}
-
-/* Smooth transitions */
+/* Smooth interactions */
 button, a {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom scrollbar */
+/* Premium scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f4f4f4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--primary-dark);
-  border-radius: 4px;
+  background: #2D5A27;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-medium);
+  background: #6B8E23;
+}
+
+/* Selection color */
+::selection {
+  background: #D4AF37;
+  color: #fff;
 }

@@ -1,189 +1,95 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { MessageCircle, Phone } from 'lucide-react';
+import { Leaf, Phone, MessageCircle, MapPin, Clock } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#2D5A27] text-white">
+    <footer className="bg-[#111F0E] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
           {/* Brand */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-full bg-[#D4AF37] flex items-center justify-center">
-                <span className="text-lg font-bold">🥭</span>
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="w-10 h-10 rounded-full bg-[#2D5A27] flex items-center justify-center shadow-md">
+                <Leaf size={18} className="text-white" />
               </div>
-              <h3 className="text-xl font-bold">SUANNAKKARUK</h3>
+              <div>
+                <p className="font-bold text-white text-sm leading-none">สวนนาครักษ์</p>
+                <p className="text-white/40 text-[10px] tracking-widest uppercase">SUANNAKKARUK</p>
+              </div>
             </div>
-            <p className="text-white/80 text-sm">
-              ผลไม้สดใหม่พรีเมี่ยมจากสวนของเรา ปลูกด้วยความรักและความเอาใจใส่
+            <p className="text-white/50 text-sm leading-relaxed mb-5">
+              ผลไม้สดพรีเมียมจากสวนนาครักษ์ ปลูกด้วยความรัก ส่งตรงถึงมือคุณทุกวัน
             </p>
-          </motion.div>
-
-          {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-bold mb-6">ลิงก์ด่วน</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#home" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  หน้าแรก
-                </a>
-              </li>
-              <li>
-                <a href="#products" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  สินค้า
-                </a>
-              </li>
-              <li>
-                <a href="#story" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  เรื่องราวของเรา
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  ติดต่อเรา
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Products */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-bold mb-6">สินค้า</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  มังคุดสดใหม่
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  ทุเรียนพรีเมี่ยม
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  ทุเรียนทอด
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white/80 hover:text-[#D4AF37] transition-colors">
-                  ชุดของขวัญ
-                </a>
-              </li>
-            </ul>
-          </motion.div>
-
-          {/* Social Media */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <h4 className="text-lg font-bold mb-6">ติดตามเรา</h4>
-            <div className="flex gap-4">
-              <a
-                href="https://facebook.com/suannakkaruk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-[#D4AF37] text-white hover:text-[#2D5A27] transition-all"
-              >
-                <span className="text-2xl">f</span>
+            <div className="flex gap-2">
+              <a href="tel:0812345678" className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#1A3A14] flex items-center justify-center transition-all text-white">
+                <Phone size={15} />
               </a>
-              <a
-                href="https://line.me/R/ti/p/@suannakkaruk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-[#D4AF37] text-white hover:text-[#2D5A27] transition-all"
-              >
-                <MessageCircle size={24} />
-              </a>
-              <a
-                href="tel:0812345678"
-                className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center hover:bg-[#D4AF37] text-white hover:text-[#2D5A27] transition-all"
-              >
-                <Phone size={24} />
+              <a href="https://line.me/R/ti/p/@suannakkaruk" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 hover:bg-[#D4AF37] hover:text-[#1A3A14] flex items-center justify-center transition-all text-white">
+                <MessageCircle size={15} />
               </a>
             </div>
-          </motion.div>
-        </div>
-
-        {/* Divider */}
-        <div className="border-t border-white/20 pt-8">
-          {/* Bottom Info */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h5 className="font-semibold mb-2">ที่อยู่</h5>
-              <p className="text-white/80 text-sm">
-                จังหวัดนครราชสีมา ประเทศไทย
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <h5 className="font-semibold mb-2">เวลาทำการ</h5>
-              <p className="text-white/80 text-sm">
-                จันทร์-อาทิตย์ 08:00-18:00 น.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <h5 className="font-semibold mb-2">โทรศัพท์</h5>
-              <p className="text-white/80 text-sm">
-                081-234-5678
-              </p>
-            </motion.div>
           </div>
 
-          {/* Copyright */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center pt-8 border-t border-white/20"
-          >
-            <p className="text-white/80 text-sm">
-              © {currentYear} สวนนาครักษ์ (SUANNAKKARUK). สงวนลิขสิทธิ์ทั้งหมด
-            </p>
-            <p className="text-white/60 text-xs mt-2">
-              ออกแบบและพัฒนาด้วย ❤️ เพื่อให้คุณได้ผลไม้คุณภาพสูง
-            </p>
-          </motion.div>
+          {/* Quick links */}
+          <div>
+            <p className="text-white font-semibold text-sm mb-5">เมนูหลัก</p>
+            <ul className="space-y-3">
+              {['หน้าแรก|#home', 'สินค้า|#products', 'เรื่องราวของเรา|#story', 'แกลเลอรี่|#gallery', 'รีวิว|#reviews', 'บทความ|#'].map((item) => {
+                const [label, href] = item.split('|');
+                return (
+                  <li key={label}>
+                    <a href={href} className="text-white/50 hover:text-[#D4AF37] text-sm transition-colors">{label}</a>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+
+          {/* Products */}
+          <div>
+            <p className="text-white font-semibold text-sm mb-5">สินค้าของเรา</p>
+            <ul className="space-y-3">
+              {['มังคุดสดใหม่', 'ทุเรียนพรีเมียม', 'ทุเรียนทอดกรอบ', 'ชุดของขวัญผลไม้'].map((p) => (
+                <li key={p}>
+                  <a href="#products" className="text-white/50 hover:text-[#D4AF37] text-sm transition-colors">{p}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact info */}
+          <div>
+            <p className="text-white font-semibold text-sm mb-5">ข้อมูลติดต่อ</p>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin size={15} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <span className="text-white/50 text-sm">จังหวัดนครราชสีมา ประเทศไทย</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Phone size={15} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <span className="text-white/50 text-sm">081-234-5678</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock size={15} className="text-[#D4AF37] shrink-0 mt-0.5" />
+                <span className="text-white/50 text-sm">จันทร์-อาทิตย์ 08:00-18:00 น.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-white/30 text-xs">
+            © {currentYear} สวนนาครักษ์ (SUANNAKKARUK). สงวนลิขสิทธิ์ทั้งหมด
+          </p>
+          <div className="flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+            <p className="text-white/30 text-xs">Premium Organic Fruit · Since 1995</p>
+          </div>
         </div>
       </div>
     </footer>

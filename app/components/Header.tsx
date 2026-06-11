@@ -1,83 +1,124 @@
 'use client';
 
-import { useState } from 'react';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Menu, X, ShoppingCart, Phone, Leaf } from 'lucide-react';
 import Link from 'next/link';
+
+const navItems = [
+  { label: 'หน้าแรก', href: '#home' },
+  { label: 'สินค้า', href: '#products' },
+  { label: 'เรื่องราวของเรา', href: '#story' },
+  { label: 'แกลเลอรี', href: '#gallery' },
+  { label: 'รีวิว', href: '#reviews' },
+  { label: 'ติดต่อเรา', href: '#contact' },
+];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const navItems = [
-    { label: 'หน้าแรก', href: '#home' },
-    { label: 'สินค้า', href: '#products' },
-    { label: 'เรื่องราวของเรา', href: '#story' },
-    { label: 'รีวิว', href: '#reviews' },
-    { label: 'ติดต่อเรา', href: '#contact' },
-  ];
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? 'bg-white/98 backdrop-blur-md shadow-md border-b border-gray-100'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
+
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#2D5A27] to-[#6B8E23] flex items-center justify-center">
-              <span className="text-white font-bold text-lg">🥭</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-10 h-10 rounded-full bg-[#2D5A27] flex items-center justify-center shadow-md group-hover:shadow-lg transition-all group-hover:scale-105">
+              <Leaf size={18} className="text-white" />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-bold text-[#2D5A27]">SUANNAKKARUK</h1>
-              <p className="text-xs text-[#6B8E23]">Premium Fruits</p>
+            <div>
+              <p className={`text-base font-bold leading-none tracking-wide transition-colors ${scrolled ? 'text-[#2D5A27]' : 'text-white'}`}>
+                สวนนาครักษ์
+              </p>
+              <p className={`text-[10px] font-medium tracking-widest uppercase transition-colors ${scrolled ? 'text-[#6B8E23]' : 'text-white/80'}`}>
+                SUANNAKKARUK
+              </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-7">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-gray-700 hover:text-[#2D5A27] font-medium transition-colors"
+                className={`text-sm font-medium transition-colors hover:text-[#D4AF37] ${
+                  scrolled ? 'text-gray-700' : 'text-white/90'
+                }`}
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Right Section */}
-          <div className="flex items-center gap-4">
-            <button className="relative p-2 text-gray-700 hover:text-[#2D5A27] transition-colors">
-              <ShoppingCart size={24} />
-              <span className="absolute top-1 right-1 w-5 h-5 bg-[#D4AF37] text-white text-xs rounded-full flex items-center justify-center font-bold">
-                0
-              </span>
+          {/* Right */}
+          <div className="flex items-center gap-3">
+            <a
+              href="tel:+66800000000"
+              className={`hidden md:flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-[#D4AF37] ${
+                scrolled ? 'text-gray-700' : 'text-white/90'
+              }`}
+            >
+              <Phone size={14} />
+              <span>โทรสั่งซื้อ</span>
+            </a>
+            <a
+              href="#products"
+              className="hidden sm:flex items-center gap-2 px-5 py-2.5 bg-[#D4AF37] text-white text-sm font-semibold rounded-full hover:bg-[#C49B2A] hover:shadow-lg transition-all"
+            >
+              สั่งซื้อสินค้า
+            </a>
+            <button className={`relative p-2 transition-colors hover:text-[#D4AF37] ${scrolled ? 'text-gray-700' : 'text-white'}`}>
+              <ShoppingCart size={20} />
+              <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-[#D4AF37] text-white text-[9px] rounded-full flex items-center justify-center font-bold">0</span>
             </button>
-
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-gray-700 hover:text-[#2D5A27]"
+              className={`lg:hidden p-2 transition-colors ${scrolled ? 'text-gray-700' : 'text-white'}`}
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="md:hidden pb-4 border-t border-gray-100">
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-gray-100 shadow-xl">
+          <nav className="max-w-7xl mx-auto px-4 py-4 flex flex-col gap-1">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="block px-4 py-3 text-gray-700 hover:bg-[#FFF8E8] hover:text-[#2D5A27] transition-colors"
                 onClick={() => setIsMenuOpen(false)}
+                className="px-4 py-3 text-gray-700 hover:bg-[#FFF8E8] hover:text-[#2D5A27] rounded-lg font-medium transition-colors"
               >
                 {item.label}
               </a>
             ))}
+            <a
+              href="#products"
+              onClick={() => setIsMenuOpen(false)}
+              className="mt-2 px-4 py-3 bg-[#2D5A27] text-white rounded-lg font-semibold text-center"
+            >
+              สั่งซื้อสินค้า
+            </a>
           </nav>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 }

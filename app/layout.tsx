@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const kanit = Kanit({
+  variable: "--font-kanit",
+  subsets: ["thai", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "สวนนาครักษ์ (SUANNAKKARUK) - Premium Fresh Fruits",
-  description: "Premium fresh mangosteen, durian, and fruit gift sets from our family farm. Daily harvested, chemical-free, luxury quality fruits.",
-  keywords: "mangosteen, durian, fresh fruits, premium fruits, fruit gift sets, Thailand",
+  title: "สวนนาครักษ์ | ทุเรียน มังคุด พรีเมียม ส่งตรงจากสวน",
+  description: "ทุเรียน มังคุด และผลไม้พรีเมียมส่งตรงจากสวนนาครักษ์ คัดสดทุกวัน ปลอดสารเคมี มาตรฐานส่งออก ส่งฟรีทั่วไทย",
+  keywords: "มังคุด, ทุเรียน, ผลไม้สด, ผลไม้พรีเมียม, ชุดของขวัญผลไม้, สวนนาครักษ์, ส่งตรงจากสวน",
   openGraph: {
-    title: "สวนนาครักษ์ (SUANNAKKARUK) - Premium Fresh Fruits",
-    description: "Premium fresh mangosteen, durian, and fruit gift sets from our family farm.",
+    title: "สวนนาครักษ์ | ทุเรียน มังคุด พรีเมียม ส่งตรงจากสวน",
+    description: "ทุเรียน มังคุด และผลไม้พรีเมียมส่งตรงจากสวนนาครักษ์ คัดสดทุกวัน ปลอดสารเคมี",
     type: "website",
+    locale: "th_TH",
   },
 };
 
@@ -29,10 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="th"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="th" className={`${kanit.variable} h-full antialiased scroll-smooth`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#2D5A27" />
